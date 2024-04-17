@@ -12,7 +12,8 @@ type Request = {
 };
 
 async function providerWrapper(req: Omit<Request, "id">) {
-  return new Promise(function (resolve, reject) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  return new Promise(function (resolve, _reject) {
     const id = ++__id;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,7 +25,7 @@ async function providerWrapper(req: Omit<Request, "id">) {
     };
     window.addEventListener("message", event_ref, false);
 
-    window.parent.postMessage({ ...req, id }, "http://localhost:5173/");
+    window.parent.postMessage({ ...req, id }, window.parent.location.origin);
   });
 }
 
