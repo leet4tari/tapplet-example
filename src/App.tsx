@@ -25,7 +25,7 @@ async function providerWrapper(req: Omit<Request, "id">) {
     };
     window.addEventListener("message", event_ref, false);
 
-    window.parent.postMessage({ ...req, id }, window.parent.location.origin);
+    window.parent.postMessage({ ...req, id }, "*");
   });
 }
 
@@ -50,7 +50,7 @@ function App() {
 
 function AccountTest({ accountData }: { accountData: unknown }) {
   async function getAccountClick() {
-    providerWrapper({ methodName: "getAccount", args: [] });
+    await providerWrapper({ methodName: "getAccount", args: [] });
   }
 
   return (
@@ -63,7 +63,8 @@ function AccountTest({ accountData }: { accountData: unknown }) {
         <Button
           variant="contained"
           sx={{ width: "50%" }}
-          onClick={async () => {
+          onClick={async (event) => {
+            event.preventDefault();
             await getAccountClick();
           }}
         >
