@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { Button, Paper, Stack, Typography } from "@mui/material";
 import { TariProvider } from "./tari-provider";
 
@@ -57,7 +56,7 @@ function AccountTest({ accountData }: { accountData: unknown }) {
     <Paper
       variant="outlined"
       elevation={0}
-      sx={{ mty: 4, padding: 3, borderRadius: 4 }}
+      sx={{ padding: 3, borderRadius: 4 }}
     >
       <Stack direction="column" spacing={2}>
         <Button
