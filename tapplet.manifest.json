@@ -1,0 +1,27 @@
+{
+  "packageName": "tapplet-example",
+  "version": "0.0.1",
+  "displayName": "Tapplet with a provider",
+  "status": "WIP",
+  "about": {
+    "summary": "Testing",
+    "description": "This is the simplest example of a tapplet with a provider for testing purposes."
+  },
+  "design": {
+    "logoPath": "./dist/logo.svg",
+    "backgroundPath": "./dist/logo.svg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MCozhusheck/tapplet-example.git"
+  },
+  "source": {
+    "location": {
+      "npm": {
+        "packageName": "tapplet-example",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "manifestVersion": "0.1.0"
+}
