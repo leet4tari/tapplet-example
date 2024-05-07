@@ -1,7 +1,15 @@
 {
   "name": "tapplet-example",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
+  "description": "Tapplet example",
+  "main": "dist/index.html",
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCozhusheck/tapplet-example.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
