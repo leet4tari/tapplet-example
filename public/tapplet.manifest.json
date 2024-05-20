@@ -1,5 +1,6 @@
 {
-  "packageName": "tapplet-example",
+  "id": "@MCozhusheck/tapplet-example",
+  "name": "tapplet-example",
   "version": "0.0.2",
   "displayName": "Tapplet with a provider",
   "status": "WIP",
