@@ -1,32 +1,24 @@
 import { useEffect, useState } from "react";
 import { Button, Paper, Stack, Typography } from "@mui/material";
-import { TariProvider } from "./tari-provider";
+import {
+  TariPermissions,
+  TariUniverseProvider,
+  TariUniverseProviderParameters,
+  permissions,
+} from "@tariproject/tarijs";
 
-let __id = 0;
-
-type Request = {
-  id: number;
-  methodName: keyof TariProvider;
-  args: unknown[];
+const TUpermissions = new TariPermissions();
+TUpermissions.addPermission(new permissions.TariPermissionKeyList());
+TUpermissions.addPermission(new permissions.TariPermissionAccountInfo());
+TUpermissions.addPermission(new permissions.TariPermissionTransactionSend());
+TUpermissions.addPermission(new permissions.TariPermissionSubstatesRead());
+const optionalPermissions = new TariPermissions();
+const params: TariUniverseProviderParameters = {
+  permissions: TUpermissions,
+  optionalPermissions,
 };
 
-async function providerWrapper(req: Omit<Request, "id">) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  return new Promise(function (resolve, _reject) {
-    const id = ++__id;
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const event_ref = function (resp: any) {
-      if (resp && resp.data && resp.data.id && resp.data.id == id) {
-        window.removeEventListener("message", event_ref);
-        resolve(resp.data);
-      }
-    };
-    window.addEventListener("message", event_ref, false);
-
-    window.parent.postMessage({ ...req, id }, "*");
-  });
-}
+const provider = new TariUniverseProvider(params);
 
 function App() {
   const [accountData, setAccountData] = useState({});
@@ -49,7 +41,7 @@ function App() {
 
 function AccountTest({ accountData }: { accountData: unknown }) {
   async function getAccountClick() {
-    await providerWrapper({ methodName: "getAccount", args: [] });
+    await provider.getAccount();
   }
 
   return (

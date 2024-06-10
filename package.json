@@ -19,7 +19,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@tariproject/wallet_jrpc_client": "file:../tari-dan/clients/javascript/wallet_daemon_client",
+    "@tariproject/tarijs": "../tari.js",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
@@ -35,6 +35,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
-    "vite": "^5.1.7"
+    "vite": "^5.1.7",
+    "vite-plugin-node-polyfills": "^0.22.0"
   }
 }
