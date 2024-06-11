@@ -4,17 +4,20 @@ import {
   TariPermissions,
   TariUniverseProvider,
   TariUniverseProviderParameters,
-  permissions,
+  permissions as walletPermissions,
 } from "@tariproject/tarijs";
 
-const TUpermissions = new TariPermissions();
-TUpermissions.addPermission(new permissions.TariPermissionKeyList());
-TUpermissions.addPermission(new permissions.TariPermissionAccountInfo());
-TUpermissions.addPermission(new permissions.TariPermissionTransactionSend());
-TUpermissions.addPermission(new permissions.TariPermissionSubstatesRead());
+const { TariPermissionAccountInfo, TariPermissionKeyList, TariPermissionSubstatesRead, TariPermissionTransactionSend } =
+  walletPermissions
+
+const permissions = new TariPermissions();
+permissions.addPermission(new TariPermissionKeyList());
+permissions.addPermission(new TariPermissionAccountInfo());
+permissions.addPermission(new TariPermissionTransactionSend());
+permissions.addPermission(new TariPermissionSubstatesRead());
 const optionalPermissions = new TariPermissions();
 const params: TariUniverseProviderParameters = {
-  permissions: TUpermissions,
+  permissions: permissions,
   optionalPermissions,
 };
 
