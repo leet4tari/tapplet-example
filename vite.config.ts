@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [
     react(),
     nodePolyfills({ include: ["events", "stream", "util", "buffer"] }),
-  ],
+  ]
 });
