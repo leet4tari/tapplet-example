@@ -1,7 +1,7 @@
 {
   "id": "@MCozhusheck/tapplet-example",
   "name": "tapplet-example",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "displayName": "Tapplet with a provider",
   "status": "WIP",
   "about": {
